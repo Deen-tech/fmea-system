@@ -1,8 +1,28 @@
 ﻿# Pressure Equipment FMEA Intelligent Assessment System
 
-> A cleaned portfolio snapshot of a 2026 China Jiliang University "Challenge Cup" team project.
+> A cleaned portfolio snapshot of a 2026 China Jiliang University "Challenge Cup" student team project.
 
-This repository contains the FastAPI/CrewAI-based intelligent assessment engine for pressure-equipment FMEA evaluation. The project explores a safety-critical AI design in which an LLM is used only for information extraction, while risk scoring and review decisions remain deterministic and auditable.
+This repository contains the FastAPI/CrewAI-based intelligent assessment engine for pressure-equipment FMEA evaluation. The project explores a safety-critical AI design in which an LLM is used only for information extraction, while risk scoring and human-review decisions remain deterministic and auditable.
+
+## Project context
+
+- **Institution:** China Jiliang University, College of Management Science and Engineering
+- **Competition:** 2026 "Challenge Cup" student innovation competition, Technology Invention Category B
+- **Team:** 10 undergraduate students
+- **First author / project lead:** He Xinlong
+- **Faculty advisors:** Zeng Qiyong and Chen Jiayan, Associate Professors
+- **Project stage:** Laboratory prototype with internal end-to-end demonstration
+
+## My contribution
+
+I am **Liu De'en**, a team member from the Standardization Engineering program (Class of 2024). My work focused on:
+
+- Building and configuring the AI agent workflow
+- Backend development for the intelligent assessment service
+- RPN analysis logic and risk-scoring workflow implementation
+- Collecting and structuring standards, regulations, and reference materials used by the assessment engine
+
+Code and project materials documenting this work are included in this repository. The repository is a team-project snapshot and does not by itself establish the contribution boundaries of every team member.
 
 ## Why this project exists
 
@@ -10,49 +30,30 @@ Manual FMEA assessment of pressure equipment is slow, difficult to update, and d
 
 The system addresses this with a **perception-decision separation** design:
 
-1. **Perceive**: one LLM pass extracts structured defect fields.
-2. **Decide**: a deterministic Python rule engine calculates S/O/D scores and risk classifications.
-3. **Account**: high-risk or incomplete cases are intercepted for human review before persistence.
+1. **Perceive:** one LLM pass extracts structured defect fields.
+2. **Decide:** a deterministic Python rule engine calculates S/O/D scores and risk classifications.
+3. **Account:** high-risk or incomplete cases are intercepted for human review before persistence.
 
-## Repository scope
-
-Included:
-
-- FastAPI API service
-- CrewAI-based defect extraction workflow
-- Three-layer deterministic rule engine
-- Rule and failure-case knowledge base
-- PWHT knowledge modules
-- Review-gate and evidence-chain logic
-- Portfolio documentation
-
-Not included in this snapshot:
-
-- The separate Spring Boot / MySQL seven-step FMEA management platform
-- Production deployment configuration
-- Enterprise or confidential inspection data
-- Original team commit history
+![End-to-end FMEA workflow](docs/fmea_workflow.png)
 
 ## Key technical features
 
 - 20+ extracted defect fields with schema validation
 - Multi-level fallback parsing for malformed LLM output
 - 132 expert rules and 198 traceable failure cases in the included data
-- `rule_id`, adjustment text, and standard reference attached to scoring evidence
+- Scoring evidence linked to rule identifiers and standard references
 - Server-side review gate for high-risk or incomplete cases
-- Celery/Redis task orchestration
-- Knowledge retrieval and PWHT parameter support
+- Celery and Redis task orchestration
+- Standards/case knowledge retrieval and PWHT parameter support
 - API-key middleware for service access
 
 ## Tech stack
 
-- Python 3.12
-- FastAPI, Pydantic
-- SQLAlchemy, Alembic, SQLite
-- Celery, Redis
-- CrewAI, LangChain
-- FAISS / sentence-transformers
-- OpenAI-compatible LLM endpoint
+- **Backend:** Python 3.12, FastAPI, Pydantic
+- **Database:** SQLAlchemy, Alembic, SQLite
+- **Asynchronous tasks:** Celery, Redis
+- **AI / LLM:** CrewAI, LangChain, OpenAI-compatible endpoints
+- **Retrieval:** FAISS, sentence-transformers
 
 ## Quick start
 
@@ -73,30 +74,53 @@ uvicorn app.main:app --reload
 
 Open `http://localhost:8000/docs` for the API documentation. Protected endpoints require the `X-API-Key` header.
 
-Redis is required for Celery-based asynchronous tasks. The exact worker command should be checked against `app/celery_app.py` before deployment.
+Redis is required for Celery-based asynchronous tasks. Check `app/celery_app.py` before running workers.
 
-## Project documentation
+## Repository scope
 
-- [Project overview](docs/project_overview.pdf)
-- [Architecture notes](docs/ARCHITECTURE.md)
-- Workflow diagram: `docs/fmea_workflow.png`
+Included:
+
+- FastAPI assessment service
+- CrewAI-based defect extraction workflow
+- Deterministic rule engine
+- Rule and failure-case knowledge base
+- PWHT knowledge modules
+- Human-review and evidence-chain logic
+- Portfolio documentation
+
+Not included:
+
+- The separate Spring Boot / MySQL seven-step FMEA management platform
+- Production deployment configuration
+- Enterprise or confidential inspection data
+- Full original team commit history
 
 ## Evidence and limitations
 
 - This is a laboratory-stage prototype.
-- The reported evaluation-time and consistency figures are **internal project metrics**, not independent external validation.
-- The included demonstration uses a limited case set and should not be treated as production validation.
-- The repository is shared as a portfolio snapshot; it does not by itself establish individual contribution boundaries.
+- Reported evaluation-time and consistency figures are **internal project metrics**, not independent external validation.
+- The included demonstration uses a limited case set.
+- The review threshold is configurable. The competition submission describes `RPN > 150`; the current code default is set in `app/core/config.py`.
+- This repository is intended as a portfolio and engineering record, not a production safety-certification system.
+
+## Documentation
+
+- [Project overview](docs/project_overview.pdf)
+- [Architecture notes](docs/ARCHITECTURE.md)
+- [Security policy](SECURITY.md)
+- [Attribution notice](NOTICE.md)
 
 ## Team and attribution
 
-- Institution: China Jiliang University, College of Management Science and Engineering
-- Project context: 2026 "Challenge Cup" student innovation competition, Technology Invention Category B
-- Original team repository: https://github.com/hxleason/hxlcrewai-defect-ai
-- Portfolio snapshot maintained by: Liu De'en
+This is a team project developed at China Jiliang University for the 2026 "Challenge Cup" competition.
 
-This is a team project. No open-source license is granted by this snapshot. Contact the project maintainers before redistribution or commercial use.
+- First author / project lead: He Xinlong
+- Faculty advisors: Zeng Qiyong and Chen Jiayan
+- Portfolio snapshot maintained by: Liu De'en
+- Original team repository: https://github.com/hxleason/hxlcrewai-defect-ai
+
+No open-source license is granted by this snapshot. Contact the project maintainers before redistribution or commercial use.
 
 ## Security
 
-Do not commit `.env`, API keys, access tokens, real inspection records, or confidential standards. See [SECURITY.md](SECURITY.md).
+Do not commit `.env`, API keys, access tokens, real inspection records, personal data, or confidential standards. If a secret is accidentally committed, rotate it immediately.
