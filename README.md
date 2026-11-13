@@ -4,10 +4,14 @@
 
 This repository contains the FastAPI/CrewAI-based intelligent assessment engine for pressure-equipment FMEA evaluation. The project explores a safety-critical AI design in which an LLM is used only for information extraction, while risk scoring and human-review decisions remain deterministic and auditable.
 
+[![Watch the system demo](docs/screenshots/05_demo_poster.png)](docs/videos/fmea_demo.mp4)
+
+*2.5-minute demo: DFMEA workflow, AI-assisted failure analysis, RPN evaluation, and human-review screens.*
+
 ## Project context
 
 - **Institution:** China Jiliang University, College of Management Science and Engineering
-- **Competition:** 2026 "Challenge Cup" student innovation competition, Technology Invention Category B
+- **Competition:** 2026 China Jiliang University "Challenge Cup" student innovation competition (university-level), Technology Invention Category B
 - **Team:** 10 undergraduate students
 - **First author / project lead:** He Xinlong
 - **Faculty advisors:** Zeng Qiyong and Chen Jiayan, Associate Professors
@@ -138,7 +142,7 @@ Not included:
 
 ## Team and attribution
 
-This is a team project developed at China Jiliang University for the 2026 "Challenge Cup" competition.
+This is a team project developed at China Jiliang University for the 2026 university-level "Challenge Cup" competition.
 
 - First author / project lead: He Xinlong
 - Faculty advisors: Zeng Qiyong and Chen Jiayan
@@ -150,6 +154,7 @@ No open-source license is granted by this snapshot. Contact the project maintain
 ## Security
 
 Do not commit `.env`, API keys, access tokens, real inspection records, personal data, or confidential standards. If a secret is accidentally committed, rotate it immediately.
+
 
 
 
