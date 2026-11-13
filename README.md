@@ -24,6 +24,15 @@ I am **Liu De'en**, a team member from the Standardization Engineering program (
 
 Code and project materials documenting this work are included in this repository. The repository is a team-project snapshot and does not by itself establish the contribution boundaries of every team member.
 
+### Representative code
+
+| Area | Representative files |
+| --- | --- |
+| AI agent workflow | `app/crews.py` |
+| Rule engine and RPN analysis | `app/core/rule_engine.py`, `app/core/defect_processor.py` |
+| Knowledge base | `app/core/knowledge_base.py`, `data/expert_rules.json`, `data/failure_cases.json` |
+| Standards and regulations | `app/core/regulation.py`, `regulations/regulations.json`, `app/rag/build_index.py` |
+
 ## Why this project exists
 
 Manual FMEA assessment of pressure equipment is slow, difficult to update, and dependent on expert experience. Inspection reports are largely unstructured, while end-to-end LLM scoring introduces hallucination, non-determinism, and auditability problems.
@@ -124,3 +133,4 @@ No open-source license is granted by this snapshot. Contact the project maintain
 ## Security
 
 Do not commit `.env`, API keys, access tokens, real inspection records, personal data, or confidential standards. If a secret is accidentally committed, rotate it immediately.
+
