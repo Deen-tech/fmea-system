@@ -31,6 +31,13 @@ The Celery log shows parallel defect evaluation, triggered rule identifiers, RPN
 
 This table compares extracted defect types against severity values and matched regulation references.
 
+## 5. Screen-recorded demo
+
+[Watch the system demo](videos/fmea_demo.mp4)
+
+Duration: approximately 2 minutes 33 seconds. The recording demonstrates the system interface and the DFMEA / AI-assisted failure-analysis workflow, including RPN evaluation and review-related screens.
+
 ## Scope
 
 The evidence demonstrates that the prototype can execute its internal workflow. It does not establish production readiness, external accuracy, or validation by an independent inspection agency.
+

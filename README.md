@@ -62,6 +62,8 @@ The system addresses this with a **perception-decision separation** design:
 
 *Internal demonstration: an inspection note is entered, the extraction agent identifies defect attributes, the risk agent evaluates severity and RPN, and the report agent generates a structured result.*
 
+- [Watch the 2.5-minute system demo](docs/videos/fmea_demo.mp4) — DFMEA workflow, AI-assisted failure analysis, RPN evaluation, and human-review screens
+
 Additional execution evidence:
 
 - [API endpoint overview](docs/screenshots/01_api_endpoints.png)
@@ -148,6 +150,7 @@ No open-source license is granted by this snapshot. Contact the project maintain
 ## Security
 
 Do not commit `.env`, API keys, access tokens, real inspection records, personal data, or confidential standards. If a secret is accidentally committed, rotate it immediately.
+
 
 
 
