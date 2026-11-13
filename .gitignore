@@ -1,0 +1,43 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime data
+*.db
+*.sqlite
+*.sqlite3
+*.log
+celerybeat-schedule*
+
+# Generated caches / indexes
+.project_dump*
+core_dump*
+project_structure.txt
+*.dump
+data/chroma_db/
+data/faiss_index/
+app/rag/faiss_index/
+
+# Large model files
+*.bin
+*.pt
+*.pth
+*.safetensors
