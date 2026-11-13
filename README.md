@@ -56,6 +56,20 @@ The system addresses this with a **perception-decision separation** design:
 - Standards/case knowledge retrieval and PWHT parameter support
 - API-key middleware for service access
 
+## Demo and evidence
+
+![FMEA intelligent analysis system demo](docs/screenshots/03_system_demo.png)
+
+*Internal demonstration: an inspection note is entered, the extraction agent identifies defect attributes, the risk agent evaluates severity and RPN, and the report agent generates a structured result.*
+
+Additional execution evidence:
+
+- [API endpoint overview](docs/screenshots/01_api_endpoints.png)
+- [Asynchronous task execution log](docs/screenshots/02_async_execution_log.png)
+- [Extraction and rule-matching check](docs/screenshots/04_extraction_rule_check.png)
+
+These screenshots document an internal demonstration environment. They are not evidence of external inspection-agency validation.
+
 ## Tech stack
 
 - **Backend:** Python 3.12, FastAPI, Pydantic
@@ -116,6 +130,7 @@ Not included:
 
 - [Project overview](docs/project_overview.pdf)
 - [Architecture notes](docs/ARCHITECTURE.md)
+- [Demonstration evidence](docs/EVIDENCE.md)
 - [Security policy](SECURITY.md)
 - [Attribution notice](NOTICE.md)
 
@@ -133,4 +148,7 @@ No open-source license is granted by this snapshot. Contact the project maintain
 ## Security
 
 Do not commit `.env`, API keys, access tokens, real inspection records, personal data, or confidential standards. If a secret is accidentally committed, rotate it immediately.
+
+
+
 
